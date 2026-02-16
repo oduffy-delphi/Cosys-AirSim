@@ -5,9 +5,10 @@ using System.Collections.Generic;
 
 public class BlocksTarget : TargetRules
 {
-	public BlocksTarget(TargetInfo Target) : base(Target)
+	public BlocksTarget(ReadOnlyTargetRules Target) : base(Target)
 	{
         DefaultBuildSettings = BuildSettingsVersion.V5;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
         Type = TargetType.Game;
 		ExtraModuleNames.AddRange(new string[] { "Blocks" });
 		//bUseUnityBuild = false;

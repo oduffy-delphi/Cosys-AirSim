@@ -148,6 +148,12 @@ public:
         FInputActionKeyMapping action(action_name, in_key, shift_key, control_key, alt_key, command_key);
 
         APlayerController* controller = actor->GetWorld()->GetFirstPlayerController();
+        if (!controller || !controller->PlayerInput || !controller->InputComponent)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("BindActionToKey: No valid PlayerController"));
+            static FInputActionBinding Dummy;
+            return Dummy;
+        }
 
         controller->PlayerInput->AddActionMapping(action);
         return controller->InputComponent->BindAction(action_name, on_press_or_release ? IE_Pressed : IE_Released, actor, func);
@@ -167,6 +173,12 @@ public:
                                             typename FInputAxisHandlerSignature::TMethodPtr<UserClass> func)
     {
         APlayerController* controller = actor->GetWorld()->GetFirstPlayerController();
+        if (!controller || !controller->PlayerInput || !controller->InputComponent)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("BindAxisToKey: No valid PlayerController"));
+            static FInputAxisBinding Dummy;
+            return Dummy;
+        }
 
         controller->PlayerInput->AddAxisMapping(axis);
         return controller->InputComponent->BindAxis(axis.AxisName, obj, func);

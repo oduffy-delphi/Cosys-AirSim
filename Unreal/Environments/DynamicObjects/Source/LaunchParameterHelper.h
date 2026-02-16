@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Engine.h"
 #include "Engine/World.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "LaunchParameterHelper.generated.h"

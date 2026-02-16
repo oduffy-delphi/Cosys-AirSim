@@ -45,7 +45,7 @@ void ASimModeCar::setupClockSpeed()
 
     current_clockspeed_ = getSettings().clock_speed;
 
-    //setup clock in PhysX
+    //setup clock in Chaos physics
     UAirBlueprintLib::setUnrealClockSpeed(this, current_clockspeed_);
     UAirBlueprintLib::LogMessageString("Clock Speed: ", std::to_string(current_clockspeed_), LogDebugLevel::Informational);
 }

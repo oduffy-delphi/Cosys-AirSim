@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class BlocksEditorTarget : TargetRules
 {
-	public BlocksEditorTarget(TargetInfo Target) : base(Target)
+	public BlocksEditorTarget(ReadOnlyTargetRules Target) : base(Target)
 	{
 	    DefaultBuildSettings = BuildSettingsVersion.V5;
         Type = TargetType.Editor;

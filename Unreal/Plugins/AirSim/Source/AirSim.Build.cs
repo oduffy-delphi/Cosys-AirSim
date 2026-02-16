@@ -76,13 +76,13 @@ public class AirSim : ModuleRules
 
     public AirSim(ReadOnlyTargetRules Target) : base(Target)
     {
-        //bEnforceIWYU = true; //to support 4.16
+        bEnforceIWYU = true;
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
         bEnableExceptions = true;
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "ImageWrapper", "RenderCore", "RHI", "AssetRegistry", "PhysicsCore", "ChaosVehicles", "Landscape", "CinematicCamera" });
-        PrivateDependencyModuleNames.AddRange(new string[] { "UMG", "Slate", "SlateCore", "RenderCore", "ChaosVehicles" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "UMG", "Slate", "SlateCore" });
 
         //suppress VC++ proprietary warnings
         PublicDefinitions.Add("_SCL_SECURE_NO_WARNINGS=1");

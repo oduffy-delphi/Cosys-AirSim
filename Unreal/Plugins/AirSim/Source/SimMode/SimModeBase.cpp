@@ -118,6 +118,10 @@ void ASimModeBase::BeginPlay()
     }
     else {
         APlayerController* player_controller = this->GetWorld()->GetFirstPlayerController();
+        if (!player_controller) {
+            UE_LOG(LogTemp, Warning, TEXT("SimModeBase: No PlayerController available"));
+            return;
+        }
         fpv_pawn = player_controller->GetViewTarget();
     }
 

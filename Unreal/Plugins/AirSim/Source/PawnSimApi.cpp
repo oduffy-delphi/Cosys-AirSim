@@ -303,6 +303,7 @@ void PawnSimApi::onCollision(class UPrimitiveComponent* MyComp, class AActor* Ot
 void PawnSimApi::possess()
 {
     APlayerController* controller = params_.pawn->GetWorld()->GetFirstPlayerController();
+    if (!controller) return;
     controller->UnPossess();
     controller->Possess(params_.pawn);
 }

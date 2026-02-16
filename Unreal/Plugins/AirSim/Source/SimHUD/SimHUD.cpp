@@ -171,6 +171,11 @@ void ASimHUD::createMainWidget()
     //create main widget
     if (widget_class_ != nullptr) {
         APlayerController* player_controller = this->GetWorld()->GetFirstPlayerController();
+        if (!player_controller) {
+            UAirBlueprintLib::LogMessage(TEXT("createMainWidget: No valid PlayerController!"), TEXT(""), LogDebugLevel::Failure);
+            widget_ = nullptr;
+            return;
+        }
         auto* pawn = player_controller->GetPawn();
         if (pawn) {
             std::string pawn_name = std::string(TCHAR_TO_ANSI(*pawn->GetName()));
